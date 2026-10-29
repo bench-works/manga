@@ -1,8 +1,8 @@
 {
   "site": {
-    "name": "アモル漫画",
+    "name": "漫画棚",
     "tagline": "白黒のペン画で描く、読み切りと連載。",
-    "base": "https://amor2016family-coder.github.io/manga/"
+    "base": "https://bench-works.github.io/manga/"
   },
   "works": [
     {
