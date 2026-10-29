@@ -1,0 +1,32 @@
+{
+  "site": {
+    "name": "アモル漫画",
+    "tagline": "白黒のペン画で描く、読み切りと連載。",
+    "base": "https://amor2016family-coder.github.io/manga/"
+  },
+  "works": [
+    {
+      "id": "birdman",
+      "title": "バードマン",
+      "ruby": "BIRDMAN",
+      "logline": "空を飛べない世界で、飛んだまま帰らなかった男を追って、少年が墜ちた機体を直す話。",
+      "about": "翼を背負った者は必ず墜ちる。そういう土地で、トビは残骸の下から一機を掘り出してしまう。墜ちた町と、帰ってきた男の話。",
+      "cover": "/Users/nakajimakouhei/Desktop/birdman/表紙/表紙_味方5体.png",
+      "原稿": "/Users/nakajimakouhei/Desktop/birdman/原稿",
+      "status": "連載中",
+      "episodes": [
+        {
+          "no": 1,
+          "title": "墜ちる町",
+          "公開日": "2026-10-29"
+        },
+        {
+          "no": 2,
+          "title": "帰ってきた男",
+          "状態": "準備中"
+        }
+      ],
+      "card": "/Users/nakajimakouhei/Desktop/birdman/広告/リンクカード_1200x630.png"
+    }
+  ]
+}
