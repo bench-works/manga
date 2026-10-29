@@ -1,11 +1,11 @@
 # 読めるサイト
 
-`公開/` を GitHub Pages にそのまま置く。**増やすときに触るのは `作品.json` と画像だけ。**
+GitHub Pages は **main ブランチの `/docs`** を配る設定。`docs/` は生成物なので直接いじらない。**増やすときに触るのは `作品.json` と画像だけ。**
 
 ```bash
 cd ~/Desktop/birdman/サイト
-python3 build.py          # 公開/ を組み直す
-cd 公開 && git add -A && git commit -m "..." && git push
+python3 build.py          # docs/ を組み直す
+cd docs && git add -A && git commit -m "..." && git push
 ```
 
 ## 話を足す

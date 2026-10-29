@@ -7,9 +7,9 @@
 
 ページ数はJSONに書かず**画像の実数から数える**。書き写すと必ずずれるため。
 """
-import json, shutil, sys
+import json, shutil, subprocess, sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
 OUT  = HERE / "docs"       # GitHub Pages は main の /docs をそのまま配れる
@@ -24,6 +24,18 @@ def webp(src: Path, dst: Path, width=WEB_W):
     if im.width != width:
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     im.save(dst, "WEBP", quality=WEB_Q, method=6)
+
+def icon(dst: Path):
+    """タブの印。16pxまで落ちるので字1文字——絵を縮めると何も読めなくなる。"""
+    if dst.exists(): return
+    o = subprocess.run(["find", "/System/Library/AssetsV2", "/System/Library/Fonts",
+                        "/Library/Fonts", str(Path.home()/"Library/Fonts"),
+                        "-iname", "ShipporiMincho-Regular.otf"],
+                       capture_output=True, text=True).stdout.strip().split("\n")[0]
+    im = Image.new("RGB", (192, 192), (17, 18, 22))
+    ImageDraw.Draw(im).text((96, 100), "鳥", font=ImageFont.truetype(o, 150),
+                            fill=(222, 218, 210), anchor="mm")
+    im.save(dst)
 
 def esc(s): return (s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
                      .replace('"',"&quot;"))
@@ -71,6 +83,7 @@ def main():
     (OUT / "a").mkdir(exist_ok=True)
     for f in ("site.css", "reader.js"):
         shutil.copy(HERE / "部品" / f, OUT / "a" / f)
+    icon(OUT / "a" / "icon.png")
 
     cards = []
     for w in cfg["works"]:
